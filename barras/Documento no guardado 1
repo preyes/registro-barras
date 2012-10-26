@@ -1,0 +1,10 @@
+>>> Codigo.objects.filter(quincena='1').aggregate(Sum('monto'))
+
+>>> from django.db.models import Avg, Count, Max, Sum
+
+>>> from barras.models import Codigo
+
+>>> Codigo.objects.filter(Q(seccional='6734010001'),Q(quincena=1)).aggregate(Sum('monto'))
+{'monto__sum': 17}
+
+

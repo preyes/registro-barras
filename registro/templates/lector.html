@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset= 'utf-8'>
+
+    <link rel='stylesheet' href= '{{STATIC_URL}}css/base.css'>
+    
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+
+    
+    <script src="{{ STATIC_URL }}admin/js/calendar.js"></script>
+    <script src="{{ STATIC_URL }}admin/js/datepicker.js"></script>
+    <script src="{{ STATIC_URL }}admin/js/admin/DateTimeShortcuts.js"></script>
+    
+    <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+
+
+    <script type="text/javascript" src="/admin/jsi18n/"></script>
+    <script type="text/javascript" src="/static/admin/js/core.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+    <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+    <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+
+
+
+
+
+
+
+        
+    <title>CODIGO DE BARRAS</title>
+
+</head>
+
+<body>
+        
+        
+        
+<form id='formulario' method='post' action='guardar_codigo'>    	{% csrf_token %} {{formulario.as_p}}
+	<input type="submit" name = "boton" value = "guardar" />
+	</form>
+	
+{% if info %}
+       
+       Codigo guardado 
+        <ul>
+            <li> Seccional: {{seccional}} </li><li> Boleta: {{boleta}} </li><li> Monto: {{monto}} </li>  
+            
+               cantidad: {{num}}  
+               
+               quincena: {{quincena}}
+         </ul>   
+
+{% endif %}
+
+</body>
+
+</html> 
