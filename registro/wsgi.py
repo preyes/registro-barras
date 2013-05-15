@@ -14,6 +14,9 @@ framework.
 
 """
 import os
+sys.stdout = sys.stderr
+
+
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "registro.settings")
 

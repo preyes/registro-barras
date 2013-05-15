@@ -2,7 +2,7 @@
 
 from django.forms import ModelForm
 from django import forms
-from barras.models import Codigo
+from barras.models import Codigo, Operador
 from django.contrib.admin import widgets
 
 
@@ -13,12 +13,15 @@ MY_CHOICES = (
     ('1', 'Quincena 1'),
     ('2', 'Quincena 2'),
 )
-
    
-class MyForm(forms.Form):
-    fecha = forms.DateField(widget=widgets.AdminDateWidget())   
-    
 
+
+class ReportForm(forms.Form):        
+    seccional = forms.CharField(widget = forms.TextInput())
+    quincena = forms.ChoiceField(choices=MY_CHOICES)
+    fecha = forms.DateField(widget=widgets.AdminDateWidget())
+    
+    
 class CodigoForm(forms.ModelForm):
     quincena = forms.ChoiceField(choices=MY_CHOICES)
     fecha = forms.DateField(widget=widgets.AdminDateWidget())   
@@ -44,6 +47,9 @@ class CodigoForm(forms.ModelForm):
           
     class Meta:
         model = Codigo
-        exclude = ('seccional','boleta','monto') 
+        exclude = ('seccional','boleta','monto') 	
+
+   
     
 
+        

@@ -13,12 +13,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', 
-        'NAME': 'registro.db',                      # Or path to database file if using sqlite3.
-        'USER': 'pablo',                      # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', 
+        'NAME': 'registro',                      # Or pDATABASE_HOST = 'hostname_where_is_db'ath to database file if using sqlite3.
+        'USER': 'postgres',                      # Not used with sqlite3.
         'PASSWORD': '1234',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'HOST': 'localhost',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
 
@@ -48,11 +48,13 @@ USE_TZ = True
 MEDIA_ROOT = os.path.join(RUTA_PROYECTO, 'media')
 
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://localhost/media/'
 
-STATIC_ROOT = ''
+
+STATIC_ROOT = os.path.join(RUTA_PROYECTO,'static')
 
 STATIC_URL = '/static/'
+
 
 #ADMIN_MEDIA_PREFIX = '/static/admin/'
 
@@ -89,6 +91,7 @@ TEMPLATE_CONTEXT_PROCESSOR = (
     "django.core.context_processors.i18n",
     "django.core.context_processors.media",
     "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.static",
 )
 
 
@@ -127,6 +130,10 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'registro',
     'barras',
+    'django_qbe',
+    'django_qbe.savedqueries',
+
+
 )
 
 # A sample logging configuration. The only tangible logging
@@ -157,5 +164,11 @@ LOGGING = {
         },
     }
 }
+
+QBE_AUTOCOMPLETE = True
+QBE_ADMIN = "admin"
+QBE_ADMIN_SITE ="admin.admin_site"
+QBE_ACCESS_FOR = lambda user: user.is_staff
+QBE_FORMATS_EXPORT = "qbe_formats"
 
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset= 'utf-8'>
+
+
+   <title>{% block title %}Bienvenido{% endblock %} - barras</title>
+   
+    
+    <link rel="stylesheet" type="text/css" href="/static/css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/forms.css" />
+
+    
+
+     
+    <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/"</script>
+    <!--<script type="text/javascript" src="/admin/jsi18n/"></script> -->
+    
+    <script type="text/javascript" src="/static/admin/js/core.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+    <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+    <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+    <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+    {% block js%} {% endblock %}
+    
+</head>
+
+<body class="barras-codigo change-form">
+
+
+<!-- Container -->
+    <div id="container">
+  
+        <!-- Header -->
+        <div id="header">
+        
+            <div id="branding">
+            <h1 id="site-name">SISTEMA</h1>
+
+            </div>
+           
+      
+        <!-- Header -->
+        </div>             
+          {% block breadcrumbs %}
+            <div class="breadcrumbs">
+                    
+    
+                        <a href="/index"> INICIO</a>
+                        <a href="/lector"> CARGAR</a>
+                        <a href="/reporte"> REPORTES</a>
+                        
+            </div>     
+           {% endblock %}  
+        
+         <!-- Content -->
+        <div id="content" class= "co1M">
+            <h1>{% block title2 %}{% endblock %}</h1>
+
+            {% block content %}
+             {% block object-tools %}{% endblock %}
+            {% endblock %}
+             {% block sidebar %}{% endblock %}
+
+            <br class="clear" />
+        </div>
+        <!-- END Content -->
+        
+        {% block footer %}<div id="footer"></div>{% endblock %}
+        </div>   
+    <!-- END Conteiner -->       
+    </div>    
+	
+
+</body>
+</html> 
+

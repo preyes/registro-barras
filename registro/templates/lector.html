@@ -1,52 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset= 'utf-8'>
+{% extends "base.html" %}
 
-    <link rel='stylesheet' href= '{{STATIC_URL}}css/base.css'>
-    
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
-    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/forms.css" />
+    {% block title%} CODIGO DE BARRAS {% endblock %}
+    {% block title2 %} CARGAR CODIGO {% endblock %}
 
-    
-    <script src="{{ STATIC_URL }}admin/js/calendar.js"></script>
-    <script src="{{ STATIC_URL }}admin/js/datepicker.js"></script>
-    <script src="{{ STATIC_URL }}admin/js/admin/DateTimeShortcuts.js"></script>
-    
-    <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+  
+
+{% block content %}
+
+<div id="content-main">
+       <fieldset class="module aligned ">
+           
+       <form id='codigo-form' method='post' action='guardar_codigo'>    	{% csrf_token %} {{formulario.as_p}}
 
 
-    <script type="text/javascript" src="/admin/jsi18n/"></script>
-    <script type="text/javascript" src="/static/admin/js/core.js"></script>
-    <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
-    <script type="text/javascript" src="/static/admin/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
-    <script type="text/javascript" src="/static/admin/js/actions.js"></script>
-    <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
-    <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+           </fieldset>
+           
+        <div class="submit-row">
+
+          <input type="submit" name = "boton" value = "guardar" class = 'default' />
 
 
+        </div>
+
+           <script type="text/javascript">document.getElementById("id_numero").focus();</script>
+
+        <script type="text/javascript">
+        (function($) {
+            var field;
 
 
+        })(django.jQuery);
+        </script>
 
 
+        </div>
+</form>
 
+        <br class="clear" />
 
-        
-    <title>CODIGO DE BARRAS</title>
-
-</head>
-
-<body>
-        
-        
-        
-<form id='formulario' method='post' action='guardar_codigo'>    	{% csrf_token %} {{formulario.as_p}}
-	<input type="submit" name = "boton" value = "guardar" />
-	</form>
 	
 {% if info %}
-       
+        
        Codigo guardado 
         <ul>
             <li> Seccional: {{seccional}} </li><li> Boleta: {{boleta}} </li><li> Monto: {{monto}} </li>  
@@ -58,6 +53,7 @@
 
 {% endif %}
 
-</body>
+{% endblock%}
 
-</html> 
+
+ 
