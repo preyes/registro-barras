@@ -13,7 +13,7 @@
                 <tr>
                   <th>Seccional</th>   <!-- Aqui el N° de oficina seccional-->
                   <th>Numero</th>      <!-- Posteriormente debera ir la cantidad de Boletas por seccional-->
-                  <th>quincena</th>    <!-- Aqui va el Importe quincenal recaudado -->
+                  <th>Monto</th>    <!-- Aqui va el Importe quincenal recaudado -->
                 </tr>
         </thead>
     {% for p in consulta %}
@@ -21,7 +21,7 @@
      		<tr>
 				<td>{{ p.seccional }}</td>
 				<td>{{ p.contador_boleta}}</td>
-				<td>{{ p.quincena }}</td>
+				<td>{{ p.monto }}</td>
 				
 					
 			</tr>

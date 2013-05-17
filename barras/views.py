@@ -58,18 +58,15 @@ def report_view(request):
          
         total = Codigo.objects.all()
         
-        monto = []
+       
+        consulta = Codigo.objects.values('seccional').annotate(monto = Sum('monto'),contador_boleta = Count('numero'))
         
-        for i in total
+        # Codigo.objects.filter(quincena='2').values('seccional').annotate(Sum('monto'),Count('numero'))  "EN quincena VA EL DATO DE QUINCENA DEL FORMULARIO"
             
         
-        
-       
-        consulta = Codigo.objects.filter(seccional = '0001805').aggregate(contador_boleta=Count('numero'))
 
         
-        consulta = Codigo.objects.annotate(contador_boleta=Count('monto')).values('seccional', 'contador_boleta')
-        
+
 
         x = {'total':total, 'consulta':consulta}               
            
