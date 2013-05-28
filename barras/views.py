@@ -29,7 +29,7 @@ def guardar_codigo(request):
             form.seccional = form.numero[6:13]
             form.boleta = form.numero[13:20]
             form.monto = form.numero[20:25]
-               
+            banco = formulario.cleaned_data['banco']   
             formulario.save()
             
            

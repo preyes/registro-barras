@@ -10,14 +10,15 @@ from django.db.models import ForeignKey
 
 class Codigo(models.Model):
     
-    numero = models.CharField (max_length= 30)
-    seccional = models.CharField(max_length=30)
-    boleta = models.CharField(max_length=30)
-    monto = models.IntegerField(max_length=30)
-    quincena = models.IntegerField()
-    fecha = models.DateField()
-    operador = models.ForeignKey('Operador')
-
+    numero      = models.CharField (max_length= 30)
+    seccional   = models.CharField(max_length=30)
+    boleta      = models.CharField(max_length=30)
+    monto       = models.IntegerField(max_length=30)
+    quincena    = models.IntegerField()
+    fecha       = models.DateField()
+    banco       = models.CharField(max_length=30)
+    operador    = models.ForeignKey('Operador')
+    
     
     def __unicode__(self):
         return self.numero

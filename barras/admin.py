@@ -3,7 +3,7 @@ from barras.models import Codigo, Operador
 
 class CodigoAdmin(admin.ModelAdmin):
    
-    list_display = ('numero','seccional','boleta','monto','quincena','fecha','operador')
+    list_display = ('numero','seccional','boleta','monto','quincena','fecha','operador','banco')
     search_fields = ('numero','seccional')
     
 admin.site.register(Codigo, CodigoAdmin)

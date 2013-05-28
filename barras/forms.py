@@ -15,16 +15,24 @@ MY_CHOICES = (
 )
    
 
+CHOICES_BANCO = (
+    ('None', '---Seleccione Banco---'),
+    ('banco cordoba', 'Banco Cordoba'),
+    ('banco nacion', 'Banco Nacion'),
+    ('correo','Correo'),
+)
 
 class ReportForm(forms.Form):        
     seccional = forms.CharField(widget = forms.TextInput())
-    quincena = forms.ChoiceField(choices=MY_CHOICES)
-    fecha = forms.DateField(widget=widgets.AdminDateWidget())
+    quincena  = forms.ChoiceField(choices=MY_CHOICES)
+    
+    fecha     = forms.DateField(widget=widgets.AdminDateWidget())
     
     
 class CodigoForm(forms.ModelForm):
     quincena = forms.ChoiceField(choices=MY_CHOICES)
-    fecha = forms.DateField(widget=widgets.AdminDateWidget())   
+    banco    = forms.ChoiceField(choices=CHOICES_BANCO)
+    fecha    = forms.DateField(widget=widgets.AdminDateWidget())   
 
     def clean_numero(self):
         dato = self.cleaned_data['numero']
